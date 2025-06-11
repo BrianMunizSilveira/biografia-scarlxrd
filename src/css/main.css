@@ -1,344 +1,404 @@
-h1, h2 {
-    color: var(--primary)
+:root {
+    --primary: #e63946;
+    --primary-dark: #c1121f;
+    --secondary: #1a1a1a;
+    --secondary-light: #2b2b2b;
+    --bg: #0d0d0d;
+    --text: #f8f9fa;
+    --text-secondary: #adb5bd;
+    --border-radius: 8px;
+    --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --transition: all 0.3s ease;
 }
 
-main, section {
-    padding: 2rem
-}
-
-img, main {
-    margin: 0 auto
-}
-
-.parallax-bg, .timeline::before, div.video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%
-}
-
-.discografia-title, h1 {
-    text-transform: uppercase;
-    letter-spacing: 2px
-}
-
-.album-year, .quote, header {
-    text-align: center
-}
-
-.album-collab, .album-note, .quote {
-    font-style: italic
-}
-
-footer, img {
-    width: 100%;
-    padding: 1rem
-}
-
-footer, section {
-    background: var(--secondary)
-}
-
-.hero-subtitle, footer {
-    color: var(--text);
-    opacity: .9
-}
-
-.cta-button, footer a {
-    text-decoration: none
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Inter, -apple-system, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: var(--text);
     background: var(--bg);
-    overflow-x: hidden
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-header {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
-}
-
-.parallax-bg {
-    width: 100%;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/d/d6/Scarlxrd_-_Rock_am_Ring_2018-3546.jpg') center/cover no-repeat;
-    transform: scale(1.1);
-    z-index: -1;
-    filter: brightness(.3)
-}
-
-.hero-subtitle, h1 {
-    z-index: 1;
-    position: relative
-}
-
-main {
-    max-width: 1200px
+h1, h2, h3, h4 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text);
 }
 
 h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;
     margin: 2.5rem 0 1.5rem;
+    padding-bottom: 0.75rem;
     border-bottom: 2px solid var(--primary);
-    padding-bottom: .5rem
+    position: relative;
 }
 
-.hero-subtitle {
-    font-size: 1.5rem
+h3 {
+    font-size: 1.75rem;
 }
 
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: 1s
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0)
-}
-
-section {
-    border-radius: 1rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, .1)
-}
-
-section>p {
-    max-width: 800px;
-    text-align: justify;
-    margin: auto
+h4 {
+    font-size: 1.25rem;
 }
 
 p {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
-    line-height: 1.8
+    line-height: 1.8;
+    color: var(--text-secondary);
 }
 
-.quote {
-    border-left: 4px solid var(--primary);
-    padding-left: 1.5rem;
-    margin: 20px auto;
-    color: #ccc;
-    max-width: 800px
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
 }
 
 img {
+    max-width: 100%;
     height: auto;
     display: block;
-    border-radius: 50%
+    border-radius: var(--border-radius);
 }
 
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header */
+header {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/d/d6/Scarlxrd_-_Rock_am_Ring_2018-3546.jpg') center/cover no-repeat;
+    transform: scale(1.1);
+    z-index: -1;
+    filter: brightness(0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text);
+    opacity: 0.9;
+    margin-top: 1rem;
+}
+
+/* Main Content */
+main {
+    padding: 4rem 0;
+}
+
+section {
+    background: var(--secondary);
+    border-radius: var(--border-radius);
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+}
+
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Timeline */
 .timeline {
     position: relative;
-    padding: 2rem 0
+    padding: 2rem 0;
 }
 
 .timeline::before {
     content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
     width: 2px;
     height: 100%;
     background: var(--primary);
 }
 
 .timeline-item {
-    padding-left: 2rem;
-    margin-bottom: 2rem;
-    position: relative
+    padding-left: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: -6px;
-    top: 0;
+    left: 14px;
+    top: 5px;
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: var(--primary)
+    background: var(--primary);
+    border: 3px solid var(--secondary);
 }
 
 .timeline-date {
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: .5rem
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
 }
 
-div.video {
-    margin: 20px -20px 30px;
-    padding: 20px 20px 56.25%;
-    position: relative
-}
-
-div.video iframe {
-    width: 100%
-}
-
-.discografia-container {
-    background: linear-gradient(135deg, #1a1a1a 0, #000 100%);
-    border-radius: 8px;
-    padding: 2rem;
+/* Quote */
+.quote {
+    border-left: 4px solid var(--primary);
+    padding-left: 1.5rem;
     margin: 2rem 0;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .3)
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* Video */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Discografia */
+.discografia-container {
+    background: linear-gradient(135deg, var(--secondary) 0, #000 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    margin: 3rem 0;
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(230, 57, 70, 0.2);
 }
 
 .discografia-title {
-    font-size: 2rem;
-    color: #fff;
+    font-size: 2.25rem;
+    color: var(--text);
     text-align: center;
-    margin-bottom: 2rem;
-    position: relative
+    margin-bottom: 3rem;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.discogria-grid {
+.discografia-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--primary);
+}
+
+.discografia-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-bottom: 2rem
+    margin-bottom: 2rem;
 }
 
 .discografia-section {
-    background: rgba(30, 30, 30, .7);
+    background: rgba(30, 30, 30, 0.7);
     padding: 1.5rem;
-    border-radius: 6px;
-    border-left: 4px solid red
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary);
+    transition: var(--transition);
+}
+
+.discografia-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .section-title {
-    color: #fff;
+    color: var(--text);
     font-size: 1.3rem;
-    margin-bottom: 1rem;
-    padding-bottom: .5rem;
-    border-bottom: 1px solid #5a5a5a
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .album-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem
+    gap: 1rem;
 }
 
 .album-card {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: .8rem;
-    background: rgba(50, 50, 50, .5);
-    border-radius: 4px;
-    transition: .3s
+    padding: 1rem;
+    background: rgba(50, 50, 50, 0.5);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
 }
 
 .album-card:hover {
-    background: rgba(70, 70, 70, .5);
-    transform: translateX(5px)
+    background: rgba(70, 70, 70, 0.5);
+    transform: translateX(5px);
 }
 
 .album-card.highlighted {
-    border: 1px solid red;
-    background: rgba(255, 0, 0, .1)
+    border: 1px solid var(--primary);
+    background: rgba(230, 57, 70, 0.1);
 }
 
 .album-year {
-    background: red;
-    color: #fff;
-    padding: .3rem .6rem;
-    border-radius: 4px;
+    background: var(--primary);
+    color: var(--text);
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--border-radius);
     font-weight: 700;
-    min-width: 50px
+    min-width: 50px;
+    text-align: center;
 }
 
 .album-info {
-    flex: 1
+    flex: 1;
 }
 
 .album-title {
-    color: #fff;
+    color: var(--text);
     margin: 0;
-    font-size: 1.1rem
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-.album-collab, .album-date, .album-note {
+.album-date, .album-note, .album-collab {
     color: #aaa;
-    margin: .2rem 0 0;
-    font-size: .9rem
-}
-
-.discografia-cta, footer {
-    margin-top: 2rem;
-    text-align: center
+    margin: 0.2rem 0 0;
+    font-size: 0.9rem;
 }
 
 .album-note {
-    color: #f99
+    color: #f99;
 }
 
 .album-collab {
-    color: #f66
+    color: #f66;
 }
 
 .discografia-cta {
-    padding: 1.5rem;
-    background: rgba(255, 0, 0, .1);
-    border-radius: 6px;
-    border: 1px dashed red
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(230, 57, 70, 0.1);
+    border-radius: var(--border-radius);
+    border: 1px dashed var(--primary);
+    text-align: center;
 }
 
 .discografia-cta h3 {
-    color: #fff;
-    margin-bottom: .5rem
+    color: var(--text);
+    margin-bottom: 1rem;
 }
 
 .discografia-cta p {
-    color: #ccc;
-    margin-bottom: 1rem
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
 }
 
 .cta-button {
     display: inline-flex;
     align-items: center;
-    gap: .5rem;
-    background: red;
-    color: #fff;
-    padding: .8rem 1.5rem;
-    border-radius: 4px;
+    gap: 0.5rem;
+    background: var(--primary);
+    color: var(--text);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
     font-weight: 700;
-    transition: .3s
+    transition: var(--transition);
 }
 
 .cta-button:hover {
-    background: #c00;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 0, 0, .3)
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
 }
 
-@media (max-width:768px) {
-    .discografia-grid {
-        grid-template-columns: 1fr
-    }
+/* Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s;
 }
 
-/* Footer Moderno */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer (mantido o estilo profissional existente) */
 footer {
     background: linear-gradient(to bottom, #111111, #000000);
     color: #999;
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
     width: 100%;
     margin-top: 4rem;
     position: relative;
-    border-top: 1px solid rgba(255, 0, 0, 0.3);
+    border-top: 1px solid rgba(230, 57, 70, 0.3);
 }
 
 .footer-container {
@@ -370,7 +430,7 @@ footer {
     bottom: 0;
     width: 50px;
     height: 2px;
-    background: red;
+    background: var(--primary);
 }
 
 .footer-links {
@@ -392,7 +452,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: red;
+    color: var(--primary);
     transform: translateX(5px);
 }
 
@@ -428,7 +488,7 @@ footer {
 }
 
 .social-icons a:hover {
-    background: red;
+    background: var(--primary);
     transform: translateY(-3px);
 }
 
@@ -447,7 +507,7 @@ footer {
 }
 
 .footer-credits a:hover {
-    color: red;
+    color: var(--primary);
     text-decoration: underline;
 }
 
@@ -469,12 +529,42 @@ footer {
 }
 
 .brand {
-    color: red;
+    color: var(--primary);
     font-weight: bold;
 }
 
 /* Responsividade */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.75rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .discografia-container {
+        padding: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    .discografia-grid {
+        grid-template-columns: 1fr;
+    }
+
     .footer-container {
         grid-template-columns: 1fr;
         text-align: center;
@@ -492,5 +582,27 @@ footer {
 
     .footer-links a:hover {
         transform: translateX(0) scale(1.05);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .timeline-item {
+        padding-left: 2rem;
+    }
+
+    .discografia-container {
+        padding: 1.5rem;
     }
 }
