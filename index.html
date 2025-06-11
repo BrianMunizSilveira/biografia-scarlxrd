@@ -28,15 +28,15 @@
 </head>
 
 <body>
-    <header>
-        <div class="parallax-bg"></div>
+    <header role="banner">
+        <div class="parallax-bg" aria-hidden="true"></div>
         <div class="hero-content">
             <h1>Scarlxrd</h1>
             <p class="hero-subtitle">O Pioneiro do Trap Metal</p>
         </div>
     </header>
 
-    <main class="container">
+    <main id="main-content" class="container" role="main">
         <section class="reveal">
             <div class="section-content">
                 <h2>Quem é Scarlxrd</h2>
@@ -487,8 +487,7 @@
         </section>
     </main>
 
-    <!-- Footer (mantido o mesmo conteúdo) -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-container">
             <!-- Seção Sobre -->
             <div class="footer-section footer-about">
@@ -650,7 +649,7 @@
         </div>
     </footer>
 
-    <script src="./src/js/main.js"></script>
+    <script src="./src/js/main.js" defer></script>
 </body>
 
 </html>

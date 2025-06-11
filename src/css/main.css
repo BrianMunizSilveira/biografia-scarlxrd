@@ -1,3 +1,6 @@
+/* Importando variáveis */
+@import 'variables.css';
+
 :root {
     --primary: #e63946;
     --primary-dark: #c1121f;
@@ -69,7 +72,7 @@ a {
 }
 
 a:hover {
-    color: var(--primary-dark);
+    color: #fff;
 }
 
 img {
@@ -156,39 +159,41 @@ section:hover {
     padding: 2rem 0;
 }
 
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 20px;
-    width: 2px;
-    height: 100%;
-    background: var(--primary);
-}
 
 .timeline-item {
-    padding-left: 3rem;
-    margin-bottom: 3rem;
     position: relative;
+    padding-left: 3rem;
+    margin-bottom: 2rem;
+    border-left: 2px solid var(--primary);
+    transition: var(--transition);
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: 14px;
-    top: 5px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
+    left: -8px;
+    top: 0;
+    width: 16px;
+    height: 16px;
     background: var(--primary);
-    border: 3px solid var(--secondary);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.timeline-item:hover::before {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px var(--primary);
 }
 
 .timeline-date {
-    font-weight: 700;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--secondary);
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    font-weight: bold;
     color: var(--primary);
-    margin-bottom: 0.75rem;
-    font-size: 1.1rem;
+    border: 1px solid var(--primary);
 }
 
 /* Quote */
@@ -583,6 +588,24 @@ footer {
     .footer-links a:hover {
         transform: translateX(0) scale(1.05);
     }
+
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+    }
+
+    .timeline-item {
+        padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+        width: 12px;
+        height: 12px;
+        left: -6px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -605,4 +628,64 @@ footer {
     .discografia-container {
         padding: 1.5rem;
     }
+}
+
+/* Melhorias na Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Foco visível para navegação por teclado */
+:focus {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Botão Voltar ao Topo */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    background: var(--primary);
+    color: var(--text);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: var(--z-tooltip);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+/* Indicador de Progresso */
+.progress-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--primary);
+    z-index: var(--z-header);
+    transition: width 0.1s ease;
 }
