@@ -150,7 +150,8 @@ img {
 .timeline::before {
     content: '';
     width: 2px;
-    background: var(--primary)
+    height: 100%;
+    background: var(--primary);
 }
 
 .timeline-item {
